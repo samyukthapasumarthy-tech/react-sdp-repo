@@ -15,7 +15,7 @@ const MainNavBar = () => {
       <div className="navbar-container">
         <div className="navbar-logo">
           <Link to="/" className="logo-link">
-            KL Event Management System - 2500030099
+           K L Event Management System
           </Link>
         </div>
         <ul className="nav-menu">
@@ -57,10 +57,10 @@ const MainNavBar = () => {
             </ul>
           </li>
         </ul>
-     </div>
-     
+      </div>
     </nav>
-      <Routes>
+
+<Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/registration" element={<Registration />} />
@@ -68,7 +68,9 @@ const MainNavBar = () => {
         <Route path="/manager-login" element={<ManagerLogin />} />
         <Route path="/customer-login" element={<CustomerLogin />} />
       </Routes>
-     </div>
+
+
+    </div>
 
   );
 };

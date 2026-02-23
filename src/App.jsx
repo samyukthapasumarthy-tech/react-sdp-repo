@@ -1,23 +1,35 @@
-import { BrowserRouter } from 'react-router-dom';
-
-import Home from './Pages/Home';
-import About from './Pages/About';
-import Registration from './Pages/Registration';
-import AdminLogin from './Pages/AdminLogin';
-import ManagerLogin from './Pages/ManagerLogin';
-import CustomerLogin from './Pages/CustomerLogin';
+import { BrowserRouter} from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import './App.css';
 import MainNavBar from './Pages/MainNavBar';
+import AdminNavBar from './admin/AdminNavBar';
+import ManagerNavBar from './manager/ManagerNavBar';
+import CustomerNavBar from './customer/CustomerNavBar';
 
 function App() {
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isManager, setIsManager] = useState(false);
+  const [isCustomer, setIsCustomer] = useState(false);
+
+  useEffect(() => {
+    // Check sessionStorage for user role
+    const adminStatus = sessionStorage.getItem('isAdmin') === 'true';
+    const managerStatus = sessionStorage.getItem('isManager') === 'true';
+    const customerStatus = sessionStorage.getItem('isCustomer') === 'true';
+
+    setIsAdmin(adminStatus);
+    setIsManager(managerStatus);
+    setIsCustomer(customerStatus);
+  }, []);
+
   return (
-   <BrowserRouter>
-   <MainNavBar/>
-   </BrowserRouter>
+     <BrowserRouter>
+         {isAdmin && <AdminNavBar/>}
+         {isManager && <ManagerNavBar/>}
+         {isCustomer && <CustomerNavBar/>}
+         {!isAdmin && !isManager && !isCustomer && <MainNavBar/>}
+     </BrowserRouter>
   );
 }
 
 export default App;
-
-
-
