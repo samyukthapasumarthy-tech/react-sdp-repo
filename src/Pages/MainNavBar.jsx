@@ -53,6 +53,7 @@ const MainNavBar = () => {
                 <Link to="/customer-login" className="dropdown-link">
                   Customer Login
                 </Link>
+                <Link to="*">Page Not Found</Link>
               </li>
             </ul>
           </li>
