@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../pages/style.css';
+import '../Pages/style.css';
 
 export default function AddManager() {
   const [formData, setFormData] = useState({
